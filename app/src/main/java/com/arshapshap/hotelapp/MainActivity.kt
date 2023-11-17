@@ -1,12 +1,28 @@
 package com.arshapshap.hotelapp
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
+import com.arshapshap.hotelapp.core.presentation.BaseActivity
+import com.arshapshap.hotelapp.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>(
+    ActivityMainBinding::inflate
+) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun initViews() {
+        configureToolbar(getNavController())
     }
+
+    private fun configureToolbar(navController: NavController) {
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
+        with(binding.toolbar) {
+            setSupportActionBar(this)
+            setupWithNavController(navController, appBarConfiguration)
+        }
+    }
+
+    private fun getNavController() =
+        (supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment).navController
 }
