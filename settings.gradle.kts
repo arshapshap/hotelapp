@@ -18,3 +18,4 @@ rootProject.name = "HotelApp"
 include(":app")
 include(":feature:hotel:api")
 include(":feature:hotel:impl")
+include(":core:presentation")
