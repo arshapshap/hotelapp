@@ -1,4 +1,4 @@
-package com.arshapshap.hotelsapp
+package com.arshapshap.hotelapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

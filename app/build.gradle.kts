@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.arshapshap.hotelsapp"
+    namespace = "com.arshapshap.hotelapp"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.arshapshap.hotelsapp"
+        applicationId = "com.arshapshap.hotelapp"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
