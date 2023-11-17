@@ -41,6 +41,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:designsystem"))
     implementation(project(":core:presentation"))
     implementation(project(":feature:hotel:api"))
     implementation(project(":feature:hotel:impl"))
