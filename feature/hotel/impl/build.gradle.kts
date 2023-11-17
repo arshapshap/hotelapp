@@ -30,9 +30,14 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+    implementation(project(":core:presentation"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)

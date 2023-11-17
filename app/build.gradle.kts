@@ -37,6 +37,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":feature:hotel:api"))
+    implementation(project(":feature:hotel:impl"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
