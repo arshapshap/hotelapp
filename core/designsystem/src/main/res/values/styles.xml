@@ -65,12 +65,12 @@
     <!-- Buttons -->
     <style name="HotelsApp.Button">
         <item name="android:paddingVertical">@dimen/button_default_vertical_padding</item>
-        <item name="cornerRadius">@dimen/button_default_corner_radius</item>
+        <item name="cornerRadius">@dimen/normal_corner_radius</item>
     </style>
 
     <!-- Containers -->
     <style name="HotelsApp.BottomButtonContainer">
-        <item name="android:background">@drawable/shape_rectangle</item>
+        <item name="android:background">@drawable/shape_stroked_rectangle</item>
         <item name="android:paddingHorizontal">@dimen/default_margin</item>
         <item name="android:paddingTop">@dimen/medium_margin</item>
         <item name="android:paddingBottom">@dimen/large_margin</item>

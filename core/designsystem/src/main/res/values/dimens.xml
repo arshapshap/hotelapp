@@ -17,8 +17,21 @@
     <!-- TagView -->
     <dimen name="tag_view_padding_horizontal">10dp</dimen>
     <dimen name="tag_view_padding_vertical">5dp</dimen>
+    <dimen name="tag_view_margin_between">2dp</dimen>
+
+    <!-- MenuItemView -->
+    <dimen name="menu_item_view_margin_between">12dp</dimen>
+    <dimen name="menu_item_view_padding">10dp</dimen>
+
+    <!-- Menu -->
+    <dimen name="menu_view_padding">5dp</dimen>
+    <dimen name="menu_view_divider_padding">47dp</dimen>
 
     <!-- Button -->
     <dimen name="button_default_vertical_padding">15dp</dimen>
-    <dimen name="button_default_corner_radius">15dp</dimen>
+
+    <!-- Corner radius -->
+    <dimen name="normal_corner_radius">15dp</dimen>
+    <dimen name="small_corner_radius">5dp</dimen>
+
 </resources>

@@ -107,6 +107,43 @@
                 android:layout_marginTop="@dimen/medium_margin"
                 android:text="Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!"
                 android:textAppearance="@style/HotelsApp.TextAppearance.Body1" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                android:background="@drawable/shape_normal_rounded_rectangle"
+                android:backgroundTint="@color/light_grey"
+                android:orientation="vertical"
+                android:padding="@dimen/menu_view_padding"
+                app:divider="@drawable/shape_divider"
+                app:dividerPadding="@dimen/menu_view_divider_padding"
+                app:showDividers="middle">
+
+                <com.arshapshap.hotelapp.designsystem.MenuItemView
+                    android:id="@+id/buttonConveniences"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:descriptionText="Самое необходимое"
+                    app:drawable="@drawable/ic_emoji_happy"
+                    app:headlineText="Удобства" />
+
+                <com.arshapshap.hotelapp.designsystem.MenuItemView
+                    android:id="@+id/buttonIncluded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:descriptionText="Самое необходимое"
+                    app:drawable="@drawable/ic_tick_square"
+                    app:headlineText="Что включено" />
+
+                <com.arshapshap.hotelapp.designsystem.MenuItemView
+                    android:id="@+id/buttonNotIncluded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:descriptionText="Самое необходимое"
+                    app:drawable="@drawable/ic_close_square"
+                    app:headlineText="Что не включено" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <FrameLayout

@@ -22,7 +22,7 @@ class TagView @JvmOverloads constructor(
     }
 
     private fun init(attrs: AttributeSet?) {
-        View.inflate(context, R.layout.item_tag, this)
+        View.inflate(context, R.layout.layout_tag_view, this)
 
         setDefaultValues()
 
@@ -36,7 +36,7 @@ class TagView @JvmOverloads constructor(
 
     private fun setDefaultValues() {
         gravity = Gravity.CENTER
-        setBackgroundResource(R.drawable.shape_tag)
+        setBackgroundResource(R.drawable.shape_small_rounded_rectangle)
 
         val paddingHorizontal = resources.getDimensionPixelOffset(R.dimen.tag_view_padding_horizontal)
         val paddingVertical = resources.getDimensionPixelOffset(R.dimen.tag_view_padding_vertical)
