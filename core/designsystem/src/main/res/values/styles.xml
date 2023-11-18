@@ -49,6 +49,7 @@
         <item name="drawableEnd">@drawable/ic_arrow</item>
         <item name="textColor">@color/blue</item>
         <item name="shapeColor">@color/light_blue</item>
+        <item name="android:clickable">true</item>
     </style>
 
     <style name="HotelsApp.TagView.Peculiarity">
