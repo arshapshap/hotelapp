@@ -3,7 +3,12 @@
     <!-- Base style -->
     <style name="HotelsApp" />
 
-    <!-- TextAppearance -->
+    <!-- Text -->
+    <style name="HotelsApp.TextAppearance.Large" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_extra_large</item>
+        <item name="android:textFontWeight" tools:targetApi="p">600</item>
+    </style>
+
     <style name="HotelsApp.TextAppearance.Headline" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/text_size_large</item>
         <item name="android:textFontWeight" tools:targetApi="p">500</item>
@@ -55,5 +60,19 @@
     <style name="HotelsApp.TagView.Peculiarity">
         <item name="textColor">@color/grey</item>
         <item name="shapeColor">@color/light_grey</item>
+    </style>
+
+    <!-- Buttons -->
+    <style name="HotelsApp.Button">
+        <item name="android:paddingVertical">@dimen/button_default_vertical_padding</item>
+        <item name="cornerRadius">@dimen/button_default_corner_radius</item>
+    </style>
+
+    <!-- Containers -->
+    <style name="HotelsApp.BottomButtonContainer">
+        <item name="android:background">@drawable/shape_rectangle</item>
+        <item name="android:paddingHorizontal">@dimen/default_margin</item>
+        <item name="android:paddingTop">@dimen/medium_margin</item>
+        <item name="android:paddingBottom">@dimen/large_margin</item>
     </style>
 </resources>

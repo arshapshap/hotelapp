@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hotel_fragment_label">Отель</string>
+    <string name="about_hotel">Об отеле</string>
+    <string name="go_to_room_selection">К выбору номера</string>
 </resources>
