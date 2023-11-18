@@ -3,8 +3,8 @@
     <style name="Base.Theme.HotelsApp" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="fontFamily">@font/sf_pro_display</item>
-        <item name="fontWeight">500</item>
+        <item name="android:colorBackground">@color/background_grey</item>
+        <item name="android:textAppearance">@style/HotelsApp.TextAppearance.Body1</item>
     </style>
 
     <style name="Theme.HotelsApp" parent="Base.Theme.HotelsApp" />

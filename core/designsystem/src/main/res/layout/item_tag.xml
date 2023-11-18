@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_tag"
+    android:gravity="center"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="5dp"
+    tools:backgroundTint="@color/light_orange"
+    tools:parentTag="androidx.appcompat.widget.LinearLayoutCompat">
+
+    <ImageView
+        android:id="@+id/imageViewIconStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:importantForAccessibility="no"
+        tools:src="@drawable/ic_star" />
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/HotelsApp.TextAppearance.Body1.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="5 Превосходно"
+        tools:textColor="@color/orange" />
+
+    <ImageView
+        android:id="@+id/imageViewIconEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="2dp"
+        android:importantForAccessibility="no"
+        tools:src="@drawable/ic_arrow"
+        tools:visibility="gone" />
+
+</merge>
