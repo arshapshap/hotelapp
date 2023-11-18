@@ -3,6 +3,14 @@
     <!-- Base style -->
     <style name="HotelsApp" />
 
+    <!-- Toolbar -->
+    <style name="HotelsApp.Toolbar">
+        <item name="android:background">@color/white</item>
+        <item name="titleCentered">true</item>
+        <item name="titleTextAppearance">@style/HotelsApp.TextAppearance.Headline</item>
+        <item name="titleTextColor">@color/black</item>
+    </style>
+
     <!-- Text -->
     <style name="HotelsApp.TextAppearance.Large" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/text_size_extra_large</item>
