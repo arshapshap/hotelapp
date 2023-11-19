@@ -51,9 +51,8 @@ internal class RoomsViewModel(
         )
     }
 
-    fun openDetails(roomId: Int) {
-
-    }
+    @Suppress("UNUSED_PARAMETER")
+    fun openDetails(roomId: Int) { }
 
     fun selectRoom(roomId: Int) {
         router.openBookingRoom(roomId)
