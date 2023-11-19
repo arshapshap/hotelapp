@@ -4,4 +4,25 @@
     <string name="order_accepted_description">Подтверждение заказа №%1$d может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление.</string>
     <string name="super_button">Супер!</string>
     <string name="fragment_success_label">Заказ оплачен</string>
+    <string name="flight_from">Вылет из</string>
+    <string name="country_and_city">Страна, город</string>
+    <string name="dates">Даты</string>
+    <string name="nights">Кол-во ночей</string>
+    <string name="hotel">Отель</string>
+    <string name="room">Номер</string>
+    <string name="nutrition">Питание</string>
+    <string name="customer_info">Информация о покупателе</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="email">Почта</string>
+    <string name="this_data_is_not_shared_with_anyone">Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="birthday">Дата рождения</string>
+    <string name="citizenship">Гражданство</string>
+    <string name="passport_number">Номер загранпаспорта</string>
+    <string name="passport_validity_period">Срок действия загранпаспорта</string>
+    <string name="tour">Тур</string>
+    <string name="fuel_allowance">Топливный сбор</string>
+    <string name="service_allowance">Сервисный сбор</string>
+    <string name="for_payment">К оплате</string>
 </resources>

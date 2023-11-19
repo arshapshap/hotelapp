@@ -39,7 +39,7 @@ class MenuItemView @JvmOverloads constructor(
         isClickable = true
         setPadding(resources.getDimensionPixelOffset(R.dimen.menu_item_view_padding))
         setBackgroundResource(R.drawable.shape_normal_rounded_rectangle)
-        background.setTint(resources.getColor(R.color.light_grey, context.theme))
+        background.setTint(resources.getColor(R.color.grey200, context.theme))
     }
 
     private fun setValuesFromAttributes(typedArray: TypedArray) {

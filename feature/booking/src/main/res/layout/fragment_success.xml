@@ -39,7 +39,7 @@
         android:layout_marginTop="@dimen/default_margin"
         android:paddingHorizontal="@dimen/default_margin"
         android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
-        android:textColor="@color/grey"
+        android:textColor="@color/grey500"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

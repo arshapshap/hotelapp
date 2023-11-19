@@ -54,20 +54,20 @@
 
     <style name="HotelsApp.TagView.Rating">
         <item name="drawableStart">@drawable/ic_star</item>
-        <item name="textColor">@color/orange</item>
-        <item name="shapeColor">@color/light_orange</item>
+        <item name="textColor">@color/orange700</item>
+        <item name="shapeColor">@color/orange200</item>
     </style>
 
     <style name="HotelsApp.TagView.Details">
         <item name="drawableEnd">@drawable/ic_arrow</item>
-        <item name="textColor">@color/blue</item>
-        <item name="shapeColor">@color/light_blue</item>
+        <item name="textColor">@color/blue700</item>
+        <item name="shapeColor">@color/blue200</item>
         <item name="android:clickable">true</item>
     </style>
 
     <style name="HotelsApp.TagView.Peculiarity">
-        <item name="textColor">@color/grey</item>
-        <item name="shapeColor">@color/light_grey</item>
+        <item name="textColor">@color/grey500</item>
+        <item name="shapeColor">@color/grey200</item>
     </style>
 
     <!-- Buttons -->
@@ -82,5 +82,23 @@
         <item name="android:paddingHorizontal">@dimen/default_margin</item>
         <item name="android:paddingTop">@dimen/medium_margin</item>
         <item name="android:paddingBottom">@dimen/large_margin</item>
+    </style>
+
+    <!-- TextInputs -->
+    <style name="HotelsApp.TextInputLayout" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="android:textColorHint">@color/grey400</item>
+        <item name="boxBackgroundColor">@color/grey100</item>
+        <item name="hintTextAppearance">@style/HotelsApp.TextAppearance.Body3</item>
+        <item name="boxCornerRadiusTopStart">@dimen/medium_corner_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/medium_corner_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/medium_corner_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/medium_corner_radius</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+    </style>
+    <style name="HotelsApp.TextInputEditText" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="android:textColorHint">@color/grey400</item>
+        <item name="boxBackgroundColor">@color/grey100</item>
+        <item name="hintTextAppearance">@style/HotelsApp.TextAppearance.Body3</item>
     </style>
 </resources>

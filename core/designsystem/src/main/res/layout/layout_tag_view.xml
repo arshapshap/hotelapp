@@ -7,7 +7,7 @@
     android:gravity="center"
     android:paddingHorizontal="@dimen/tag_view_padding_horizontal"
     android:paddingVertical="@dimen/tag_view_padding_vertical"
-    tools:backgroundTint="@color/light_orange"
+    tools:backgroundTint="@color/orange200"
     tools:parentTag="androidx.appcompat.widget.LinearLayoutCompat">
 
     <ImageView
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="5 Превосходно"
-        tools:textColor="@color/orange" />
+        tools:textColor="@color/orange700" />
 
     <ImageView
         android:id="@+id/imageViewIconEnd"

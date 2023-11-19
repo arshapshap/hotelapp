@@ -31,7 +31,7 @@ internal class ImageCarouselLoader(private val context: Context, private val ada
     private fun getPlaceholdersList(size: Int) = (1..size).map {
         ColorDrawable(
             context.resources.getColor(
-                R.color.light_grey,
+                R.color.grey200,
                 context.theme
             )
         )
