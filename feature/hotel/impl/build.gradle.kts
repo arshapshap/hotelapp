@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.bundles.navigation)
     implementation(libs.coil)
+    implementation(libs.flexbox)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

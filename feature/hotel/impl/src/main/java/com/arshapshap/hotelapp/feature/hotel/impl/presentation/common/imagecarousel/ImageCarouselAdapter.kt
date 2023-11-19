@@ -1,11 +1,11 @@
-package com.arshapshap.hotelapp.designsystem.imagecarousel
+package com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.imagecarousel
 
 import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.arshapshap.hotelapp.designsystem.databinding.ItemCarouselImageBinding
+import com.arshapshap.hotelapp.feature.hotel.impl.databinding.ItemCarouselImageBinding
 
 class ImageCarouselAdapter(
     private var list: List<Drawable?> = listOf(),

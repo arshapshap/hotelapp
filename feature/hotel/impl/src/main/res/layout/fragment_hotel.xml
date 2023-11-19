@@ -34,7 +34,6 @@
                     android:layout_height="match_parent" />
             </androidx.cardview.widget.CardView>
 
-
             <com.arshapshap.hotelapp.designsystem.TagView
                 android:id="@+id/tagViewRating"
                 style="@style/HotelsApp.TagView.Rating"
@@ -103,13 +102,16 @@
                 android:text="@string/about_hotel"
                 android:textAppearance="@style/HotelsApp.TextAppearance.Headline" />
 
-            <com.arshapshap.hotelapp.designsystem.TagView
-                android:id="@+id/peculiarities"
-                style="@style/HotelsApp.TagView.Peculiarity"
-                android:layout_width="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewPeculiarities"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin"
-                app:text="1 км до пляжа" />
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_peculiarity" />
 
             <TextView
                 android:id="@+id/textViewAboutHotel"
@@ -119,42 +121,7 @@
                 android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
                 tools:text="Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!" />
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/default_margin"
-                android:background="@drawable/shape_normal_rounded_rectangle"
-                android:backgroundTint="@color/light_grey"
-                android:orientation="vertical"
-                android:padding="@dimen/menu_view_padding"
-                app:divider="@drawable/shape_divider"
-                app:dividerPadding="@dimen/menu_view_divider_padding"
-                app:showDividers="middle">
-
-                <com.arshapshap.hotelapp.designsystem.MenuItemView
-                    android:id="@+id/buttonConveniences"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:descriptionText="Самое необходимое"
-                    app:drawable="@drawable/ic_emoji_happy"
-                    app:headlineText="Удобства" />
-
-                <com.arshapshap.hotelapp.designsystem.MenuItemView
-                    android:id="@+id/buttonIncluded"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:descriptionText="Самое необходимое"
-                    app:drawable="@drawable/ic_tick_square"
-                    app:headlineText="Что включено" />
-
-                <com.arshapshap.hotelapp.designsystem.MenuItemView
-                    android:id="@+id/buttonNotIncluded"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:descriptionText="Самое необходимое"
-                    app:drawable="@drawable/ic_close_square"
-                    app:headlineText="Что не включено" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
+            <include layout="@layout/layout_hotel_details_menu" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <FrameLayout
