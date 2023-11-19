@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.arshapshap.hotelapp.feature.hotel.impl.databinding.ItemCarouselImageBinding
 
-class ImageCarouselAdapter(
+internal class ImageCarouselAdapter(
     private var list: List<Drawable?> = listOf(),
 ) : RecyclerView.Adapter<ImageCarouselAdapter.ViewHolder>() {
 

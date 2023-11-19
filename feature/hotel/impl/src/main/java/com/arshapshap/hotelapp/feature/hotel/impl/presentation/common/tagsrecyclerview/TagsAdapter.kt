@@ -8,7 +8,7 @@ import com.arshapshap.hotelapp.designsystem.TagView
 import com.arshapshap.hotelapp.feature.hotel.impl.databinding.ItemPeculiarityBinding
 
 
-class PeculiaritiesAdapter(
+internal class PeculiaritiesAdapter(
     private var list: List<String> = listOf(),
 ) : RecyclerView.Adapter<PeculiaritiesAdapter.ViewHolder>() {
 
