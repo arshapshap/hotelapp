@@ -55,6 +55,6 @@ internal class RoomsViewModel(
     fun openDetails(roomId: Int) { }
 
     fun selectRoom(roomId: Int) {
-        router.openBookingRoom(roomId)
+        router.openBookingScreen(roomId)
     }
 }

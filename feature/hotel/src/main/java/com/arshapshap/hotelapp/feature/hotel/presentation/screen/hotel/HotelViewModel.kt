@@ -47,6 +47,6 @@ internal class HotelViewModel(
     }
 
     fun goToRoomSelection() {
-        router.openRoomsList()
+        router.openRoomsScreen()
     }
 }

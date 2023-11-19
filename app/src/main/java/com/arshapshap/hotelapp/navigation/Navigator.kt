@@ -1,9 +1,12 @@
 package com.arshapshap.hotelapp.navigation
 
 import androidx.navigation.NavController
+import com.arshapshap.hotelapp.R
+import com.arshapshap.hotelapp.feature.booking.FeatureBookingRouter
+import com.arshapshap.hotelapp.feature.booking.presentation.screen.success.FragmentSuccessHelper
 import com.arshapshap.hotelapp.feature.hotel.FeatureHotelRouter
 
-class Navigator : FeatureHotelRouter {
+class Navigator : FeatureHotelRouter, FeatureBookingRouter {
 
     private var navController: NavController? = null
 
@@ -18,11 +21,25 @@ class Navigator : FeatureHotelRouter {
         }
     }
 
-    override fun openRoomsList() {
-        navController?.navigate(com.arshapshap.hotelapp.feature.hotel.R.id.roomsFragment)
+    override fun openHotelScreen() {
+        navController?.navigate(R.id.hotelFragment)
     }
 
-    override fun openBookingRoom(roomId: Int) {
-        //TODO("Not yet implemented")
+    override fun openRoomsScreen() {
+        navController?.navigate(R.id.roomsFragment)
+    }
+
+    override fun openBookingScreen(roomId: Int) {
+        navController?.navigate(
+            R.id.successFragment,
+            FragmentSuccessHelper.createBundle(12345)
+        )
+    }
+
+    override fun openSuccessPage(orderId: Int) {
+        navController?.navigate(
+            R.id.successFragment,
+            FragmentSuccessHelper.createBundle(orderId)
+        )
     }
 }

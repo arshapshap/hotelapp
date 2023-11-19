@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="order_accepted">Ваш заказ принят в работу</string>
+    <string name="order_accepted_description">Подтверждение заказа №%1$d может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление.</string>
+    <string name="super_button">Супер!</string>
+    <string name="fragment_success_label">Заказ оплачен</string>
+</resources>

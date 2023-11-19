@@ -2,7 +2,7 @@ package com.arshapshap.hotelapp.feature.hotel
 
 interface FeatureHotelRouter {
 
-    fun openRoomsList()
+    fun openRoomsScreen()
 
-    fun openBookingRoom(roomId: Int)
+    fun openBookingScreen(roomId: Int)
 }
