@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_fragment_hotel"
-    app:startDestination="@id/hotelFragment">
+    app:startDestination="@id/roomsFragment">
 
     <fragment
         android:id="@+id/hotelFragment"
@@ -11,6 +11,14 @@
         android:label="@string/hotel_fragment_label"
         tools:layout="@layout/fragment_hotel">
         <deepLink app:uri="hotelApp://hotelFeature/hotelFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/roomsFragment"
+        android:name="com.arshapshap.hotelapp.feature.hotel.impl.presentation.screen.rooms.RoomsFragment"
+        android:label="@string/hotel_fragment_label"
+        tools:layout="@layout/fragment_rooms">
+        <deepLink app:uri="hotelApp://hotelFeature/roomsFragment" />
     </fragment>
 
 </navigation>

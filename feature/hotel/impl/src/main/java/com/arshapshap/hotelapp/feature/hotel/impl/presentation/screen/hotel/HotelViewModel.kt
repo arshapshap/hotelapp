@@ -38,4 +38,8 @@ internal class HotelViewModel : BaseViewModel() {
             )
         )
     }
+
+    fun goToRoomSelection() {
+
+    }
 }

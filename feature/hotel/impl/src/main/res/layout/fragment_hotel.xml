@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/default_margin_negative"
     android:fillViewport="true">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -15,24 +16,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_card"
-            android:paddingHorizontal="@dimen/default_margin"
-            android:paddingTop="@dimen/toolbar_height"
-            android:paddingBottom="@dimen/default_margin">
+            android:padding="@dimen/default_margin">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewHotelImages"
+            <include
+                android:id="@+id/layoutImagesCarousel"
+                layout="@layout/layout_image_carousel"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/image_carousel_height"
-                android:layout_marginTop="@dimen/small_margin"
-                app:cardCornerRadius="@dimen/normal_corner_radius"
-                app:cardElevation="0dp"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/viewPagerHotelImages"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.arshapshap.hotelapp.designsystem.TagView
                 android:id="@+id/tagViewRating"
@@ -40,8 +31,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardViewHotelImages"
+                app:layout_constraintTop_toBottomOf="@id/layoutImagesCarousel"
                 tools:text="5 Превосходно" />
 
             <TextView
@@ -50,6 +43,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/small_margin"
                 android:textAppearance="@style/HotelsApp.TextAppearance.Headline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tagViewRating"
                 tools:text="Steigenberger Makadi" />
@@ -61,6 +56,8 @@
                 android:layout_marginTop="@dimen/small_margin"
                 android:textAppearance="@style/HotelsApp.TextAppearance.Body2.Medium"
                 android:textColor="@color/blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewHotelName"
                 tools:text="Madinat Makadi, Safaga Road, Makadi Bay, Египет" />
@@ -83,6 +80,8 @@
                 android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
                 android:textColor="@color/grey"
                 app:layout_constraintBaseline_toBaselineOf="@id/textViewPrice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toEndOf="@id/textViewPrice"
                 tools:text="за тур с перелётом" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -102,16 +101,12 @@
                 android:text="@string/about_hotel"
                 android:textAppearance="@style/HotelsApp.TextAppearance.Headline" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <include
                 android:id="@+id/recyclerViewPeculiarities"
+                layout="@layout/recyclerview_peculiarities"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/default_margin"
-                android:nestedScrollingEnabled="false"
-                android:orientation="horizontal"
-                app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
-                tools:itemCount="5"
-                tools:listitem="@layout/item_peculiarity" />
+                android:layout_marginTop="@dimen/default_margin" />
 
             <TextView
                 android:id="@+id/textViewAboutHotel"
@@ -131,6 +126,7 @@
             android:layout_marginTop="@dimen/medium_margin">
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonGoToRoomSelection"
                 style="@style/HotelsApp.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

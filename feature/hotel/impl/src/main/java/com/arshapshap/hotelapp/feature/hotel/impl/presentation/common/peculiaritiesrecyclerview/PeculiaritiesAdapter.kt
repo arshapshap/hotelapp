@@ -1,4 +1,4 @@
-package com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.tagsrecyclerview
+package com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.peculiaritiesrecyclerview
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><!-- for some reason attributes "padding", "paddingHorizontal" and "paddingVertical" with negative values do not give any effect;
+negative values are needed to compensate for the internal margins of recyclerview elements -->
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:nestedScrollingEnabled="false"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/extra_small_margin_negative"
+    android:paddingTop="@dimen/extra_small_margin_negative"
+    android:paddingEnd="@dimen/extra_small_margin_negative"
+    android:paddingBottom="@dimen/extra_small_margin_negative"
+    app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+    tools:itemCount="5"
+    tools:listitem="@layout/item_peculiarity" />

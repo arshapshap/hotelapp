@@ -1,16 +1,12 @@
 package com.arshapshap.hotelapp.feature.hotel.impl.presentation.screen.hotel
 
-import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
-import coil.imageLoader
-import coil.request.ImageRequest
 import com.arshapshap.hotelapp.core.presentation.BaseFragment
 import com.arshapshap.hotelapp.feature.hotel.impl.R
 import com.arshapshap.hotelapp.feature.hotel.impl.databinding.FragmentHotelBinding
 import com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.imagecarousel.ImageCarouselAdapter
-import com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.tagsrecyclerview.PeculiaritiesAdapter
-import com.google.android.flexbox.FlexboxLayoutManager
-import java.text.DecimalFormat
+import com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.imagecarousel.ImageCarouselLoader
+import com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.peculiaritiesrecyclerview.PeculiaritiesAdapter
+import com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.utils.formatToPrice
 
 
 internal class HotelFragment : BaseFragment<FragmentHotelBinding, HotelViewModel>(
@@ -23,10 +19,9 @@ internal class HotelFragment : BaseFragment<FragmentHotelBinding, HotelViewModel
 
     override fun initViews() {
         with(binding) {
-            viewPagerHotelImages.adapter = ImageCarouselAdapter()
+            layoutImagesCarousel.viewPagerImages.adapter = ImageCarouselAdapter()
 
-            recyclerViewPeculiarities.adapter = PeculiaritiesAdapter()
-            recyclerViewPeculiarities.layoutManager = FlexboxLayoutManager(requireContext())
+            recyclerViewPeculiarities.root.adapter = PeculiaritiesAdapter()
         }
     }
 
@@ -35,54 +30,29 @@ internal class HotelFragment : BaseFragment<FragmentHotelBinding, HotelViewModel
 
         viewModel.hotel.observe(viewLifecycleOwner) {
             with(binding) {
-                getImageCarouselAdapter().setList(getPlaceholdersList(it.imageUrls.size))
-                loadImages(it.imageUrls)
+                ImageCarouselLoader(
+                    context = requireContext(),
+                    adapter = getImageCarouselAdapter()
+                ).loadImages(it.imageUrls)
 
                 tagViewRating.text = resources.getString(R.string.rating, it.rating, it.ratingName)
                 textViewHotelName.text = it.name
                 textViewLocation.text = it.adress
-                textViewPrice.text = resources.getString(R.string.minimal_price, it.minimalPrice.format())
+                textViewPrice.text = resources.getString(R.string.minimal_price, it.minimalPrice.formatToPrice())
                 textViewPriceDescription.text = it.priceForIt
                 textViewAboutHotel.text = it.aboutTheHotel.description
                 getPeculiaritiesAdapter().setList(it.aboutTheHotel.peculiarities)
+
+                buttonGoToRoomSelection.setOnClickListener {
+                    viewModel.goToRoomSelection()
+                }
             }
         }
-    }
-
-    private fun getPlaceholdersList(size: Int) = (1..size).map {
-        ColorDrawable(
-            resources.getColor(
-                com.arshapshap.hotelapp.designsystem.R.color.light_grey,
-                requireContext().theme
-            )
-        )
-    }
-
-    private fun loadImages(imageUrls: List<String>) {
-        imageUrls.forEachIndexed { index, it ->
-            loadImage(url = it) { drawable ->
-                getImageCarouselAdapter().setItem(drawable, index)
-            }
-        }
-    }
-
-    private fun loadImage(url: String, action: (Drawable) -> Unit) {
-        val request: ImageRequest = ImageRequest.Builder(requireContext())
-            .data(url)
-            .target {
-                action(it)
-            }
-            .build()
-        requireContext().imageLoader.enqueue(request)
     }
 
     private fun getImageCarouselAdapter() =
-        binding.viewPagerHotelImages.adapter as ImageCarouselAdapter
+        binding.layoutImagesCarousel.viewPagerImages.adapter as ImageCarouselAdapter
 
     private fun getPeculiaritiesAdapter() =
-        binding.recyclerViewPeculiarities.adapter as PeculiaritiesAdapter
-
-    private fun Int.format(): String {
-        return DecimalFormat("###,###").format(this).replace(',', ' ')
-    }
+        binding.recyclerViewPeculiarities.root.adapter as PeculiaritiesAdapter
 }
