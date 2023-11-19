@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.arshapshap.hotelapp.feature.hotel.impl.R
 import com.arshapshap.hotelapp.feature.hotel.impl.databinding.ItemRoomInfoBinding
-import com.arshapshap.hotelapp.feature.hotel.impl.domain.Room
+import com.arshapshap.hotelapp.feature.hotel.impl.domain.model.Room
 import com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.imagecarousel.ImageCarouselAdapter
 import com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.imagecarousel.ImageCarouselLoader
 import com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.peculiaritiesrecyclerview.PeculiaritiesAdapter

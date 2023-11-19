@@ -1,4 +1,4 @@
-package com.arshapshap.hotelapp.feature.hotel.impl.domain
+package com.arshapshap.hotelapp.feature.hotel.impl.domain.model
 
 internal data class Hotel(
     val id: Int,
