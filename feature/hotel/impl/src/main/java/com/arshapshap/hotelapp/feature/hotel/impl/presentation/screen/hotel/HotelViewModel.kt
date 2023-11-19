@@ -39,6 +39,10 @@ internal class HotelViewModel : BaseViewModel() {
         )
     }
 
+    fun clickOnLocation() {
+
+    }
+
     fun goToRoomSelection() {
 
     }

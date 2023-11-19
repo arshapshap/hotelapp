@@ -20,8 +20,14 @@ internal class HotelFragment : BaseFragment<FragmentHotelBinding, HotelViewModel
     override fun initViews() {
         with(binding) {
             layoutImagesCarousel.viewPagerImages.adapter = ImageCarouselAdapter()
-
             recyclerViewPeculiarities.root.adapter = PeculiaritiesAdapter()
+
+            textViewLocation.setOnClickListener {
+                viewModel.clickOnLocation()
+            }
+            buttonGoToRoomSelection.setOnClickListener {
+                viewModel.goToRoomSelection()
+            }
         }
     }
 
@@ -42,10 +48,6 @@ internal class HotelFragment : BaseFragment<FragmentHotelBinding, HotelViewModel
                 textViewPriceDescription.text = it.priceForIt
                 textViewAboutHotel.text = it.aboutTheHotel.description
                 getPeculiaritiesAdapter().setList(it.aboutTheHotel.peculiarities)
-
-                buttonGoToRoomSelection.setOnClickListener {
-                    viewModel.goToRoomSelection()
-                }
             }
         }
     }
