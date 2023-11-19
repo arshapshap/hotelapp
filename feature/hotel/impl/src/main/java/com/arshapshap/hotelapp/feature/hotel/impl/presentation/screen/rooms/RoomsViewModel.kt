@@ -3,9 +3,12 @@ package com.arshapshap.hotelapp.feature.hotel.impl.presentation.screen.rooms
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.arshapshap.hotelapp.core.presentation.BaseViewModel
+import com.arshapshap.hotelapp.feature.hotel.impl.FeatureHotelRouter
 import com.arshapshap.hotelapp.feature.hotel.impl.domain.model.Room
 
-internal class RoomsViewModel : BaseViewModel() {
+internal class RoomsViewModel(
+    private val router: FeatureHotelRouter
+) : BaseViewModel() {
 
     private val _rooms = MutableLiveData<List<Room>>()
     val rooms: LiveData<List<Room>> = _rooms
@@ -53,6 +56,6 @@ internal class RoomsViewModel : BaseViewModel() {
     }
 
     fun selectRoom(roomId: Int) {
-
+        router.openBookingRoom(roomId)
     }
 }

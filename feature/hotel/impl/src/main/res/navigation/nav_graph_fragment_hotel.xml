@@ -9,16 +9,12 @@
         android:id="@+id/hotelFragment"
         android:name="com.arshapshap.hotelapp.feature.hotel.impl.presentation.screen.hotel.HotelFragment"
         android:label="@string/hotel_fragment_label"
-        tools:layout="@layout/fragment_hotel">
-        <deepLink app:uri="hotelApp://hotelFeature/hotelFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_hotel"/>
 
     <fragment
         android:id="@+id/roomsFragment"
         android:name="com.arshapshap.hotelapp.feature.hotel.impl.presentation.screen.rooms.RoomsFragment"
         android:label="@string/hotel_fragment_label"
-        tools:layout="@layout/fragment_rooms">
-        <deepLink app:uri="hotelApp://hotelFeature/roomsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_rooms"/>
 
 </navigation>

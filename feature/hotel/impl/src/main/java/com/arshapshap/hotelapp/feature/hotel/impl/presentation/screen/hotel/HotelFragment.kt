@@ -7,15 +7,14 @@ import com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.imagecarou
 import com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.imagecarousel.ImageCarouselLoader
 import com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.peculiaritiesrecyclerview.PeculiaritiesAdapter
 import com.arshapshap.hotelapp.feature.hotel.impl.presentation.common.utils.formatToPrice
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 internal class HotelFragment : BaseFragment<FragmentHotelBinding, HotelViewModel>(
     FragmentHotelBinding::inflate
 ) {
 
-    override val viewModel: HotelViewModel by lazy {
-        HotelViewModel()
-    }
+    override val viewModel: HotelViewModel by viewModel()
 
     override fun initViews() {
         with(binding) {
