@@ -17,6 +17,12 @@ class TagView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : LinearLayoutCompat(context, attrs, defStyleAttr) {
 
+    var text: String = ""
+        set(value) {
+            findViewById<TextView>(R.id.textView)?.text = value
+            field = value
+        }
+
     init {
         init(attrs)
     }

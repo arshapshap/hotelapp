@@ -15,15 +15,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_card"
-            android:padding="@dimen/default_margin"
-            android:paddingTop="@dimen/toolbar_height">
+            android:paddingHorizontal="@dimen/default_margin"
+            android:paddingTop="@dimen/toolbar_height"
+            android:paddingBottom="@dimen/default_margin">
 
-            <ImageView
-                android:id="@+id/imageViewHotel"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewHotelImages"
                 android:layout_width="match_parent"
-                android:layout_height="257dp"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+                android:layout_height="@dimen/image_carousel_height"
+                android:layout_marginTop="@dimen/small_margin"
+                app:cardCornerRadius="@dimen/normal_corner_radius"
+                app:cardElevation="0dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPagerHotelImages"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </androidx.cardview.widget.CardView>
+
 
             <com.arshapshap.hotelapp.designsystem.TagView
                 android:id="@+id/tagViewRating"
@@ -32,50 +42,50 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageViewHotel"
-                app:text="5 Превосходно" />
+                app:layout_constraintTop_toBottomOf="@id/cardViewHotelImages"
+                tools:text="5 Превосходно" />
 
             <TextView
                 android:id="@+id/textViewHotelName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/small_margin"
-                android:text="Steigenberger Makadi"
                 android:textAppearance="@style/HotelsApp.TextAppearance.Headline"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tagViewRating" />
+                app:layout_constraintTop_toBottomOf="@id/tagViewRating"
+                tools:text="Steigenberger Makadi" />
 
             <TextView
                 android:id="@+id/textViewLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/small_margin"
-                android:text="Madinat Makadi, Safaga Road, Makadi Bay, Египет"
                 android:textAppearance="@style/HotelsApp.TextAppearance.Body2.Medium"
                 android:textColor="@color/blue"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textViewHotelName" />
+                app:layout_constraintTop_toBottomOf="@id/textViewHotelName"
+                tools:text="Madinat Makadi, Safaga Road, Makadi Bay, Египет" />
 
             <TextView
                 android:id="@+id/textViewPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_margin"
-                android:text="от 134 673 ₽"
                 android:textAppearance="@style/HotelsApp.TextAppearance.Large"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textViewLocation" />
+                app:layout_constraintTop_toBottomOf="@id/textViewLocation"
+                tools:text="от 134 673 ₽" />
 
             <TextView
                 android:id="@+id/textViewPriceDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/small_margin"
-                android:text="за тур с перелётом"
                 android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
                 android:textColor="@color/grey"
                 app:layout_constraintBaseline_toBaselineOf="@id/textViewPrice"
-                app:layout_constraintStart_toEndOf="@id/textViewPrice" />
+                app:layout_constraintStart_toEndOf="@id/textViewPrice"
+                tools:text="за тур с перелётом" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -106,8 +116,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/medium_margin"
-                android:text="Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!"
-                android:textAppearance="@style/HotelsApp.TextAppearance.Body1" />
+                android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
+                tools:text="Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
