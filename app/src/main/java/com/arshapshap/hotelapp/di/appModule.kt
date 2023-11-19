@@ -1,6 +1,6 @@
 package com.arshapshap.hotelapp.di
 
-import com.arshapshap.hotelapp.feature.hotel.impl.FeatureHotelRouter
+import com.arshapshap.hotelapp.feature.hotel.FeatureHotelRouter
 import com.arshapshap.hotelapp.navigation.Navigator
 import org.koin.dsl.module
 

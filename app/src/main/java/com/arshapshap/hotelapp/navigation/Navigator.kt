@@ -1,7 +1,7 @@
 package com.arshapshap.hotelapp.navigation
 
 import androidx.navigation.NavController
-import com.arshapshap.hotelapp.feature.hotel.impl.FeatureHotelRouter
+import com.arshapshap.hotelapp.feature.hotel.FeatureHotelRouter
 
 class Navigator : FeatureHotelRouter {
 
@@ -19,7 +19,7 @@ class Navigator : FeatureHotelRouter {
     }
 
     override fun openRoomsList() {
-        navController?.navigate(com.arshapshap.hotelapp.feature.hotel.impl.R.id.roomsFragment)
+        navController?.navigate(com.arshapshap.hotelapp.feature.hotel.R.id.roomsFragment)
     }
 
     override fun openBookingRoom(roomId: Int) {
