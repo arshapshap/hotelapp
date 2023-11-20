@@ -27,6 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
+            android:ems="10"
             android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
             tools:text="+7 (951) 555-99-00" />
     </com.google.android.material.textfield.TextInputLayout>

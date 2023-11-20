@@ -16,16 +16,21 @@ internal class BookingFragment : BaseFragment<FragmentBookingBinding, BookingVie
     override val viewModel: BookingViewModel by viewModel()
 
     override fun initViews() {
-        binding.recyclerViewTourists.adapter = TouristsAdapter(
-            onClickExpand = viewModel::expandTouristInfo,
-            onFieldChanged = viewModel::onFieldChanged)
+        with(binding) {
+            PhoneMaskHelper().addPhoneMask(layoutCustomerInfo.editTextPhoneNumber)
 
-        binding.buttonPay.setOnClickListener {
-            viewModel.clickPay()
-        }
+            recyclerViewTourists.adapter = TouristsAdapter(
+                onClickExpand = viewModel::expandTouristInfo,
+                onFieldChanged = viewModel::onFieldChanged
+            )
 
-        binding.imageButtonAddTourist.setOnClickListener {
-            viewModel.addTourist()
+            imageButtonAddTourist.setOnClickListener {
+                viewModel.addTourist()
+            }
+
+            buttonPay.setOnClickListener {
+                viewModel.clickPay()
+            }
         }
     }
 
@@ -75,4 +80,6 @@ internal class BookingFragment : BaseFragment<FragmentBookingBinding, BookingVie
     }
 
     private fun getTouristsAdapter() = binding.recyclerViewTourists.adapter as TouristsAdapter
+
+
 }
