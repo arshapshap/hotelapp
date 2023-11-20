@@ -1,14 +1,14 @@
 package com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.model
 
-import java.util.Date
+import java.time.LocalDate
 
-data class EditableTourist(
+internal data class EditableTourist(
     val id: Int,
     val name: String,
     val surname: String,
-    val birthday: Date?,
+    val birthday: LocalDate?,
     val citizenship: String,
     val passportNumber: Int?,
-    val passportValidityPeriod: Date?,
+    val passportValidityPeriod: LocalDate?,
     val isExpanded: Boolean = true
 )

@@ -15,7 +15,8 @@
             android:id="@+id/layoutHeader"
             layout="@layout/layout_booking_header"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"/>
 
         <include
             android:id="@+id/layoutMainInfo"

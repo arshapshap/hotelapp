@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.arshapshap.hotelapp.designsystem.TagView
+import com.arshapshap.hotelapp.designsystem.customviews.TagView
 import com.arshapshap.hotelapp.feature.hotel.databinding.ItemPeculiarityBinding
 
 

@@ -14,4 +14,6 @@
 
     <color name="orange700">#FFFFA800</color>
     <color name="orange200">#FFFFF4CC</color>
+
+    <color name="red">#27EB5757</color>
 </resources>

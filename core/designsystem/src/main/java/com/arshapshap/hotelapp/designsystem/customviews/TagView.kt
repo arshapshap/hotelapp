@@ -1,4 +1,4 @@
-package com.arshapshap.hotelapp.designsystem
+package com.arshapshap.hotelapp.designsystem.customviews
 
 import android.content.Context
 import android.content.res.TypedArray
@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.view.isGone
+import com.arshapshap.hotelapp.designsystem.R
 
 class TagView @JvmOverloads constructor(
     context: Context,

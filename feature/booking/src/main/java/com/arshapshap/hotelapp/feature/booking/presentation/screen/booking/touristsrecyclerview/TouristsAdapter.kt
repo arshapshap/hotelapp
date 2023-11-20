@@ -86,11 +86,22 @@ internal class TouristsAdapter(
 
         private fun setContent(tourist: EditableTourist) {
             with(binding) {
+                //textInputName.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongName))
                 editTextName.setNewText(tourist.name)
+
+                //textInputSurname.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongSurname))
                 editTextSurname.setNewText(tourist.surname)
+
+                //textInputBirthday.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongBirthday))
                 editTextBirthday.setNewText(tourist.birthday?.toString() ?: "")
+
+                //textInputCitizenship.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongCitizenship))
                 editTextCitizenship.setNewText(tourist.citizenship)
+
+                //textInputPassportNumber.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongPassportNumber))
                 editTextPassportNumber.setNewText(tourist.passportNumber?.toString() ?: "")
+
+                //textInputPassportValidityPeriod.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongPassportValidityPeriod))
                 editTextPassportValidityPeriod.setNewText(
                     tourist.passportValidityPeriod?.toString() ?: ""
                 )

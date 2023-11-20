@@ -12,7 +12,7 @@
     app:showDividers="middle"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.arshapshap.hotelapp.designsystem.MenuItemView
+    <com.arshapshap.hotelapp.designsystem.customviews.MenuItemView
         android:id="@+id/buttonConveniences"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         app:drawable="@drawable/ic_emoji_happy"
         app:headlineText="Удобства" />
 
-    <com.arshapshap.hotelapp.designsystem.MenuItemView
+    <com.arshapshap.hotelapp.designsystem.customviews.MenuItemView
         android:id="@+id/buttonIncluded"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
         app:drawable="@drawable/ic_tick_square"
         app:headlineText="Что включено" />
 
-    <com.arshapshap.hotelapp.designsystem.MenuItemView
+    <com.arshapshap.hotelapp.designsystem.customviews.MenuItemView
         android:id="@+id/buttonNotIncluded"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

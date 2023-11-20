@@ -1,12 +1,16 @@
 package com.arshapshap.hotelapp.feature.booking.presentation.screen.booking
 
 import androidx.core.view.isGone
+import androidx.core.widget.doAfterTextChanged
 import com.arshapshap.hotelapp.core.presentation.BaseFragment
 import com.arshapshap.hotelapp.core.utils.formatToPrice
+import com.arshapshap.hotelapp.designsystem.extensions.setError
 import com.arshapshap.hotelapp.feature.booking.R
 import com.arshapshap.hotelapp.feature.booking.databinding.FragmentBookingBinding
 import com.arshapshap.hotelapp.feature.booking.domain.model.BookingData
+import com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.model.BookingError
 import com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.touristsrecyclerview.TouristsAdapter
+import com.google.android.material.textfield.TextInputLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 internal class BookingFragment : BaseFragment<FragmentBookingBinding, BookingViewModel>(
@@ -16,12 +20,29 @@ internal class BookingFragment : BaseFragment<FragmentBookingBinding, BookingVie
     override val viewModel: BookingViewModel by viewModel()
 
     override fun initViews() {
-        with(binding) {
-            PhoneMaskHelper().addPhoneMask(layoutCustomerInfo.editTextPhoneNumber)
+        with(binding.layoutCustomerInfo) {
+            PhoneMaskHelper().addPhoneMask(
+                editTextPhoneNumber,
+                viewModel::onPhoneNumberChanged
+            )
+            editTextPhoneNumber.doAfterTextChanged {
+                textInputPhoneNumber.setError(false)
+            }
 
+            editTextEmail.doAfterTextChanged {
+                textInputEmail.setError(false)
+                viewModel.onEmailChanged(it.toString())
+            }
+            editTextEmail.setOnFocusChangeListener { v, hasFocus ->
+                if (!hasFocus)
+                    viewModel.validateEmail()
+            }
+        }
+
+        with(binding) {
             recyclerViewTourists.adapter = TouristsAdapter(
                 onClickExpand = viewModel::expandTouristInfo,
-                onFieldChanged = viewModel::onFieldChanged
+                onFieldChanged = viewModel::onTouristFieldChanged
             )
 
             imageButtonAddTourist.setOnClickListener {
@@ -47,6 +68,17 @@ internal class BookingFragment : BaseFragment<FragmentBookingBinding, BookingVie
             val recyclerViewState = binding.recyclerViewTourists.layoutManager!!.onSaveInstanceState()
             getTouristsAdapter().setList(it)
             binding.recyclerViewTourists.layoutManager!!.onRestoreInstanceState(recyclerViewState)
+        }
+
+        viewModel.errors.observe(viewLifecycleOwner) {
+            when {
+                BookingError.WrongPhone in it -> {
+                    binding.layoutCustomerInfo.textInputPhoneNumber.setError(true, getString(R.string.wrong_phone_number))
+                }
+                BookingError.WrongEmail in it -> {
+                    binding.layoutCustomerInfo.textInputEmail.setError(true, getString(R.string.wrong_email))
+                }
+            }
         }
     }
 
@@ -81,5 +113,7 @@ internal class BookingFragment : BaseFragment<FragmentBookingBinding, BookingVie
 
     private fun getTouristsAdapter() = binding.recyclerViewTourists.adapter as TouristsAdapter
 
-
+    private fun TextInputLayout.setError(error: Boolean, message: String = "") {
+        this.setError(requireContext(), error, message)
+    }
 }

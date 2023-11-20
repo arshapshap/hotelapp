@@ -34,7 +34,7 @@
         android:layout_marginTop="@dimen/small_margin"
         app:layout_constraintTop_toBottomOf="@id/textViewRoomName" />
 
-    <com.arshapshap.hotelapp.designsystem.TagView
+    <com.arshapshap.hotelapp.designsystem.customviews.TagView
         android:id="@+id/tagViewDetails"
         style="@style/HotelsApp.TagView.Details"
         android:layout_width="wrap_content"

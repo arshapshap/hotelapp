@@ -1,6 +1,6 @@
 package com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.model
 
-enum class EditableTouristField {
+internal enum class EditableTouristField {
     Name,
     Surname,
     Birthday,

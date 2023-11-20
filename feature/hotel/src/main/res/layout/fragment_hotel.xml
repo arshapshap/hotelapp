@@ -25,7 +25,7 @@
                 android:layout_height="@dimen/image_carousel_height"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.arshapshap.hotelapp.designsystem.TagView
+            <com.arshapshap.hotelapp.designsystem.customviews.TagView
                 android:id="@+id/tagViewRating"
                 style="@style/HotelsApp.TagView.Rating"
                 android:layout_width="wrap_content"

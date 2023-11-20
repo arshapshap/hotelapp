@@ -3,13 +3,13 @@ package com.arshapshap.hotelapp.feature.booking.presentation.screen.booking
 import android.widget.EditText
 import androidx.core.widget.doOnTextChanged
 
-class PhoneMaskHelper {
+internal class PhoneMaskHelper {
 
-    fun addPhoneMask(editText: EditText) {
-        editText.addPhoneNumberMask()
+    fun addPhoneMask(editText: EditText, onPhoneChanged: (String) -> Unit) {
+        editText.addPhoneNumberMask(onPhoneChanged)
     }
 
-    private fun EditText.addPhoneNumberMask() {
+    private fun EditText.addPhoneNumberMask(onPhoneChanged: (String) -> Unit) {
         setOnFocusChangeListener { _, _ ->
             if (text.isEmpty())
                 setText(formatPhoneNumber(""))
@@ -22,16 +22,17 @@ class PhoneMaskHelper {
                 }
 
                 (count in (before + 1)..1) && (currentPhone.length < 10) -> {
-                    val new = text.toString()[start]
                     val position = getPositionInPhoneByIndexInString(start)
-                    val newPhone = currentPhone.take(position) + new + currentPhone.drop(position)
+                    val newPhone = currentPhone.take(position) + text.toString()[start] + currentPhone.drop(position)
                     val selectionIndex = getIndexInStringPhoneByPositionInPhone(position + 1)
                     setTextAndSelection(formatPhoneNumber(newPhone), selectionIndex)
+                    onPhoneChanged(newPhone)
                 }
 
                 before in (count + 1)..1 -> {
                     val newPhone = getPhoneNumberFromString(text.toString())
                     setTextAndSelection(formatPhoneNumber(newPhone), start)
+                    onPhoneChanged(newPhone)
                 }
                 else -> { }
             }

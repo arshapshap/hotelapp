@@ -1,4 +1,4 @@
-package com.arshapshap.hotelapp.designsystem
+package com.arshapshap.hotelapp.designsystem.customviews
 
 import android.content.Context
 import android.content.res.TypedArray
@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.view.setPadding
+import com.arshapshap.hotelapp.designsystem.R
 
 
 class MenuItemView @JvmOverloads constructor(
