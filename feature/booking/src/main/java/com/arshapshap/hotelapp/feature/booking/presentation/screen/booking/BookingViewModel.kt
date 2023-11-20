@@ -3,18 +3,22 @@ package com.arshapshap.hotelapp.feature.booking.presentation.screen.booking
 import android.text.TextUtils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.arshapshap.hotelapp.core.presentation.BaseViewModel
 import com.arshapshap.hotelapp.feature.booking.FeatureBookingRouter
 import com.arshapshap.hotelapp.feature.booking.domain.model.BookingData
+import com.arshapshap.hotelapp.feature.booking.domain.usecase.GetBookingDataUseCase
 import com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.model.BookingError
 import com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.model.Customer
 import com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.model.EditableTourist
 import com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.model.EditableTouristField
+import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
 
 internal class BookingViewModel(
+    private val getBookingDataUseCase: GetBookingDataUseCase,
     private val router: FeatureBookingRouter
 ) : BaseViewModel() {
 
@@ -34,24 +38,10 @@ internal class BookingViewModel(
     val errors: LiveData<Set<BookingError>> = _errors
 
     fun loadData() {
-        _bookingData.value = BookingData(
-            id = 0,
-            hotelName = "Лучший пятизвездочный отель в Хургаде, Египет",
-            hotelAdress = "Madinat Makadi, Safaga Road, Makadi Bay, Египет",
-            horating = 5,
-            ratingName = "Превосходно",
-            departure = "Москва",
-            arrivalCountry = "Египет, Хургада",
-            tourDateStart = "19.09.2023",
-            tourDateStop = "27.09.2023",
-            numberOfNights = 7,
-            room = "Люкс номер с видом на море",
-            nutrition = "Все включено",
-            tourPrice = 289400,
-            fuelCharge = 9300,
-            serviceCharge = 2150,
-            sum = 289400+9300+2150
-        )
+        viewModelScope.launch {
+            val bookingData = getBookingDataUseCase()
+            _bookingData.postValue(bookingData)
+        }
     }
 
     fun clickPay() {
