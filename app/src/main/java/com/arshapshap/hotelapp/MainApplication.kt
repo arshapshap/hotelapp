@@ -1,6 +1,7 @@
 package com.arshapshap.hotelapp
 
 import android.app.Application
+import com.arshapshap.hotelapp.core.network.networkModule
 import com.arshapshap.hotelapp.di.appModule
 import com.arshapshap.hotelapp.feature.booking.di.featureBookingModule
 import com.arshapshap.hotelapp.feature.hotel.di.featureHotelModule
@@ -15,7 +16,8 @@ class MainApplication : Application() {
             modules(
                 appModule,
                 featureHotelModule,
-                featureBookingModule
+                featureBookingModule,
+                networkModule
             )
         }
     }
