@@ -65,19 +65,19 @@ internal class BookingViewModel(
     }
 
     fun onPhoneNumberChanged(phoneNumber: String) {
-        _errors.value = _errors.value!!.minus(BookingError.WrongPhone)
+        removeError(BookingError.WrongPhone)
         _customer.value = _customer.value?.copy(phoneNumber = phoneNumber)
     }
 
     fun onEmailChanged(email: String) {
-        _errors.value = _errors.value!!.minus(BookingError.WrongEmail)
+        removeError(BookingError.WrongEmail)
         _customer.value = _customer.value?.copy(email = email)
     }
 
     fun validateEmail() {
         val email = customer.value?.email ?: ""
         if (!email.isEmailValid())
-            _errors.value = _errors.value!!.plus(BookingError.WrongEmail)
+            addError(BookingError.WrongEmail)
     }
 
     fun onTouristFieldChanged(id: Int, field: EditableTouristField, value: String) {
@@ -122,49 +122,49 @@ internal class BookingViewModel(
 
     private fun isTouristNameValid(tourist: EditableTourist): Boolean {
         if (tourist.name == "")
-            _errors.value = _errors.value!!.plus(BookingError.WrongName(tourist.id))
+            addError(BookingError.WrongName(tourist.id))
         else
-            _errors.value = _errors.value!!.minus(BookingError.WrongName(tourist.id))
+            removeError(BookingError.WrongName(tourist.id))
         return tourist.name != ""
     }
 
     private fun isTouristSurnameValid(tourist: EditableTourist): Boolean {
         if (tourist.surname == "")
-            _errors.value = _errors.value!!.plus(BookingError.WrongSurname(tourist.id))
+            addError(BookingError.WrongSurname(tourist.id))
         else
-            _errors.value = _errors.value!!.minus(BookingError.WrongSurname(tourist.id))
+            removeError(BookingError.WrongSurname(tourist.id))
         return tourist.surname != ""
     }
 
     private fun isTouristBirthdayValid(tourist: EditableTourist): Boolean {
         if (tourist.birthday == null)
-            _errors.value = _errors.value!!.plus(BookingError.WrongBirthday(tourist.id))
+            addError(BookingError.WrongBirthday(tourist.id))
         else
-            _errors.value = _errors.value!!.minus(BookingError.WrongBirthday(tourist.id))
+            removeError(BookingError.WrongBirthday(tourist.id))
         return tourist.birthday != null
     }
 
     private fun isTouristCitizenshipValid(tourist: EditableTourist): Boolean {
         if (tourist.citizenship == "")
-            _errors.value = _errors.value!!.plus(BookingError.WrongCitizenship(tourist.id))
+            addError(BookingError.WrongCitizenship(tourist.id))
         else
-            _errors.value = _errors.value!!.minus(BookingError.WrongCitizenship(tourist.id))
+            removeError(BookingError.WrongCitizenship(tourist.id))
         return tourist.citizenship != ""
     }
 
     private fun isTouristPassportNumberValid(tourist: EditableTourist): Boolean {
         if (tourist.passportNumber == null)
-            _errors.value = _errors.value!!.plus(BookingError.WrongPassportNumber(tourist.id))
+            addError(BookingError.WrongPassportNumber(tourist.id))
         else
-            _errors.value = _errors.value!!.minus(BookingError.WrongPassportNumber(tourist.id))
+            removeError(BookingError.WrongPassportNumber(tourist.id))
         return tourist.passportNumber != null
     }
 
     private fun isTouristPassportValidityPeriodValid(tourist: EditableTourist): Boolean {
         if (tourist.passportValidityPeriod == null)
-            _errors.value = _errors.value!!.plus(BookingError.WrongPassportValidityPeriod(tourist.id))
+            addError(BookingError.WrongPassportValidityPeriod(tourist.id))
         else
-            _errors.value = _errors.value!!.minus(BookingError.WrongPassportValidityPeriod(tourist.id))
+            removeError(BookingError.WrongPassportValidityPeriod(tourist.id))
         return tourist.passportValidityPeriod != null
     }
 
@@ -172,17 +172,32 @@ internal class BookingViewModel(
         var error = false
         if (!customer.value!!.email.isEmailValid()){
             error = true
-            _errors.value = _errors.value!!.plus(BookingError.WrongEmail)
+            addError(BookingError.WrongEmail)
         }
         if (!customer.value!!.phoneNumber.isPhoneValid()) {
             error = true
-            _errors.value = _errors.value!!.plus(BookingError.WrongPhone)
+            addError(BookingError.WrongPhone)
         }
         _touristsList.forEach {
-
+            error = isTouristNameValid(it) || error
+            error = isTouristSurnameValid(it) || error
+            error = isTouristBirthdayValid(it) || error
+            error = isTouristCitizenshipValid(it) || error
+            error = isTouristPassportNumberValid(it) || error
+            error = isTouristPassportValidityPeriodValid(it) || error
         }
 
         return !error
+    }
+
+    private fun addError(error: BookingError) {
+        if (error !in _errors.value!!)
+            _errors.value = _errors.value!!.plus(error)
+    }
+
+    private fun removeError(error: BookingError) {
+        if (error in _errors.value!!)
+            _errors.value = _errors.value!!.minus(error)
     }
 
     private fun getNewTourist() = EditableTourist(
