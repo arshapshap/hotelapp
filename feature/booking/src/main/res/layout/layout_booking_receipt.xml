@@ -9,83 +9,83 @@
     android:padding="@dimen/default_margin">
 
     <TextView
-        android:id="@+id/textViewTourParagraph"
+        android:id="@+id/textViewTourPriceParagraph"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/tour"
+        android:text="@string/tour_price"
         android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
         android:textColor="@color/grey500"
-        app:layout_constraintEnd_toStartOf="@+id/textViewTour"
+        app:layout_constraintEnd_toStartOf="@+id/textViewTourPrice"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewTour"
+        android:id="@+id/textViewTourPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="end"
         android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
         app:layout_constrainedWidth="true"
-        app:layout_constraintBaseline_toBaselineOf="@id/textViewTourParagraph"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewTourPriceParagraph"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@id/textViewTourParagraph"
+        app:layout_constraintStart_toEndOf="@id/textViewTourPriceParagraph"
         tools:text="186 600 ₽" />
 
     <TextView
-        android:id="@+id/textViewFuelAllowanceParagraph"
+        android:id="@+id/textViewFuelChargeParagraph"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_margin"
-        android:text="@string/fuel_allowance"
+        android:text="@string/fuel_charge"
         android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
         android:textColor="@color/grey500"
-        app:layout_constraintEnd_toStartOf="@+id/textViewFuelAllowance"
+        app:layout_constraintEnd_toStartOf="@+id/textViewFuelCharge"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewTour" />
+        app:layout_constraintTop_toBottomOf="@id/textViewTourPrice" />
 
     <TextView
-        android:id="@+id/textViewFuelAllowance"
+        android:id="@+id/textViewFuelCharge"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="end"
         android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
         app:layout_constrainedWidth="true"
-        app:layout_constraintBaseline_toBaselineOf="@id/textViewFuelAllowanceParagraph"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewFuelChargeParagraph"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@id/textViewFuelAllowanceParagraph"
+        app:layout_constraintStart_toEndOf="@id/textViewFuelChargeParagraph"
         tools:text="9 300 ₽" />
 
     <TextView
-        android:id="@+id/textViewServiceAllowanceParagraph"
+        android:id="@+id/textViewServiceChargeParagraph"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_margin"
-        android:text="@string/service_allowance"
+        android:text="@string/service_charge"
         android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
         android:textColor="@color/grey500"
-        app:layout_constraintEnd_toStartOf="@+id/textViewServiceAllowance"
+        app:layout_constraintEnd_toStartOf="@+id/textViewServiceCharge"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewFuelAllowance" />
+        app:layout_constraintTop_toBottomOf="@id/textViewFuelCharge" />
 
     <TextView
-        android:id="@+id/textViewServiceAllowance"
+        android:id="@+id/textViewServiceCharge"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="end"
         android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
         app:layout_constrainedWidth="true"
-        app:layout_constraintBaseline_toBaselineOf="@id/textViewServiceAllowanceParagraph"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewServiceChargeParagraph"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@id/textViewServiceAllowanceParagraph"
+        app:layout_constraintStart_toEndOf="@id/textViewServiceChargeParagraph"
         tools:text="2 136 ₽" />
 
     <TextView
@@ -100,7 +100,7 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewServiceAllowance" />
+        app:layout_constraintTop_toBottomOf="@id/textViewServiceCharge" />
 
     <TextView
         android:id="@+id/textViewForPayment"
@@ -109,7 +109,7 @@
         android:gravity="end"
         android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
         app:layout_constrainedWidth="true"
-        android:textColor="@color/blue700"
+        android:textColor="?attr/colorPrimary"
         android:fontFamily="@font/sf_pro_display_semibold"
         app:layout_constraintBaseline_toBaselineOf="@id/textViewForPaymentParagraph"
         app:layout_constraintEnd_toEndOf="parent"

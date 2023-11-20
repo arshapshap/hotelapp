@@ -10,7 +10,7 @@ import com.arshapshap.hotelapp.feature.hotel.domain.model.Room
 import com.arshapshap.hotelapp.feature.hotel.presentation.common.imagecarousel.ImageCarouselAdapter
 import com.arshapshap.hotelapp.feature.hotel.presentation.common.imagecarousel.ImageCarouselLoader
 import com.arshapshap.hotelapp.feature.hotel.presentation.common.peculiaritiesrecyclerview.PeculiaritiesAdapter
-import com.arshapshap.hotelapp.feature.hotel.presentation.common.utils.formatToPrice
+import com.arshapshap.hotelapp.core.utils.formatToPrice
 
 
 internal class RoomsAdapter(

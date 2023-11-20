@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/small_margin"
     android:background="@drawable/shape_card"
     android:orientation="vertical"
     android:padding="@dimen/default_margin">
@@ -23,16 +24,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <ImageView
-            android:id="@+id/imageViewExpandTouristInfo"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:clickable="true"
+        <ImageButton
+            android:id="@+id/imageButtonExpandTouristInfo"
+            android:layout_width="@dimen/normal_icon_size"
+            android:layout_height="@dimen/normal_icon_size"
             android:background="@drawable/shape_small_rounded_rectangle"
             android:backgroundTint="@color/blue200"
+            android:clickable="true"
+            android:importantForAccessibility="no"
             android:rotation="270"
-            android:src="@drawable/ic_arrow"
-            android:importantForAccessibility="no" />
+            android:src="@drawable/ic_arrow" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -47,6 +48,7 @@
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPersonName|textCapWords"
             android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
             tools:text="Иван" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -63,6 +65,7 @@
             android:id="@+id/editTextSurname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPersonName|textCapWords"
             android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
             tools:text="Иванов" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -79,6 +82,7 @@
             android:id="@+id/editTextBirthday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="date"
             android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
             tools:text="01.01.2003" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -95,6 +99,7 @@
             android:id="@+id/editTextCitizenship"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="text"
             android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
             tools:text="Российская Федерация" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -111,6 +116,7 @@
             android:id="@+id/editTextPassportNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
             tools:text="123456789" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -127,6 +133,7 @@
             android:id="@+id/editTextPassportValidityPeriod"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="date"
             android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
             tools:text="12.12.2025" />
     </com.google.android.material.textfield.TextInputLayout>

@@ -6,7 +6,7 @@ import com.arshapshap.hotelapp.feature.hotel.databinding.FragmentHotelBinding
 import com.arshapshap.hotelapp.feature.hotel.presentation.common.imagecarousel.ImageCarouselAdapter
 import com.arshapshap.hotelapp.feature.hotel.presentation.common.imagecarousel.ImageCarouselLoader
 import com.arshapshap.hotelapp.feature.hotel.presentation.common.peculiaritiesrecyclerview.PeculiaritiesAdapter
-import com.arshapshap.hotelapp.feature.hotel.presentation.common.utils.formatToPrice
+import com.arshapshap.hotelapp.core.utils.formatToPrice
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

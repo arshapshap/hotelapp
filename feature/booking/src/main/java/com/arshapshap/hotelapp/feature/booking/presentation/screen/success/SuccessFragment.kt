@@ -6,7 +6,7 @@ import com.arshapshap.hotelapp.feature.booking.databinding.FragmentSuccessBindin
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-internal class FragmentSuccess : BaseFragment<FragmentSuccessBinding, SuccessViewModel>(
+internal class SuccessFragment : BaseFragment<FragmentSuccessBinding, SuccessViewModel>(
     FragmentSuccessBinding::inflate
 ) {
 
@@ -25,7 +25,7 @@ internal class FragmentSuccess : BaseFragment<FragmentSuccessBinding, SuccessVie
     }
 
     private fun getOrderId() = arguments?.getInt(
-        FragmentSuccessHelper.ORDER_ID_KEY,
+        SuccessFragmentHelper.ORDER_ID_KEY,
         0
     )
 }

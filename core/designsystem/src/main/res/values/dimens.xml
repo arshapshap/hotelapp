@@ -36,6 +36,9 @@
     <dimen name="menu_view_padding">5dp</dimen>
     <dimen name="menu_view_divider_padding">47dp</dimen>
 
+    <!-- Icon -->
+    <dimen name="normal_icon_size">32dp</dimen>
+
     <!-- Button -->
     <dimen name="button_default_vertical_padding">15dp</dimen>
 

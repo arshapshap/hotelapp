@@ -26,6 +26,7 @@
             android:id="@+id/editTextPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="phone"
             android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
             tools:text="+7 (951) 555-99-00" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -42,6 +43,7 @@
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
             tools:text="examplemail.000@mail.ru" />
     </com.google.android.material.textfield.TextInputLayout>

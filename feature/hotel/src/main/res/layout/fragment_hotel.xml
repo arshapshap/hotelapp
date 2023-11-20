@@ -56,7 +56,7 @@
                 android:layout_marginTop="@dimen/extra_small_margin"
                 android:paddingVertical="@dimen/extra_small_margin"
                 android:textAppearance="@style/HotelsApp.TextAppearance.Body2.Medium"
-                android:textColor="@color/blue700"
+                android:textColor="?attr/colorPrimary"
                 android:background="?attr/selectableItemBackground"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"

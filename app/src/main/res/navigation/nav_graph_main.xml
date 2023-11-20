@@ -9,18 +9,56 @@
         android:id="@+id/hotelFragment"
         android:name="com.arshapshap.hotelapp.feature.hotel.presentation.screen.hotel.HotelFragment"
         android:label="@string/hotel_fragment_label"
-        tools:layout="@layout/fragment_hotel"/>
+        tools:layout="@layout/fragment_hotel">
+        <action
+            android:id="@+id/action_hotelFragment_to_roomsFragment"
+            app:destination="@id/roomsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
 
     <fragment
         android:id="@+id/roomsFragment"
         android:name="com.arshapshap.hotelapp.feature.hotel.presentation.screen.rooms.RoomsFragment"
         android:label="@string/hotel_fragment_label"
-        tools:layout="@layout/fragment_rooms"/>
+        tools:layout="@layout/fragment_rooms">
+        <action
+            android:id="@+id/action_roomsFragment_to_bookingFragment"
+            app:destination="@id/bookingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.BookingFragment"
+        android:label="@string/booking_fragment_label"
+        tools:layout="@layout/fragment_booking">
+        <action
+            android:id="@+id/action_bookingFragment_to_successFragment"
+            app:destination="@id/successFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
 
     <fragment
         android:id="@+id/successFragment"
-        android:name="com.arshapshap.hotelapp.feature.booking.presentation.screen.success.FragmentSuccess"
+        android:name="com.arshapshap.hotelapp.feature.booking.presentation.screen.success.SuccessFragment"
         android:label="@string/fragment_success_label"
-        tools:layout="@layout/fragment_success"/>
+        tools:layout="@layout/fragment_success">
+        <action
+            android:id="@+id/action_successFragment_to_hotelFragment"
+            app:destination="@id/hotelFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/hotelFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

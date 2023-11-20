@@ -3,7 +3,7 @@ package com.arshapshap.hotelapp.navigation
 import androidx.navigation.NavController
 import com.arshapshap.hotelapp.R
 import com.arshapshap.hotelapp.feature.booking.FeatureBookingRouter
-import com.arshapshap.hotelapp.feature.booking.presentation.screen.success.FragmentSuccessHelper
+import com.arshapshap.hotelapp.feature.booking.presentation.screen.success.SuccessFragmentHelper
 import com.arshapshap.hotelapp.feature.hotel.FeatureHotelRouter
 
 class Navigator : FeatureHotelRouter, FeatureBookingRouter {
@@ -22,24 +22,21 @@ class Navigator : FeatureHotelRouter, FeatureBookingRouter {
     }
 
     override fun openHotelScreen() {
-        navController?.navigate(R.id.hotelFragment)
+        navController?.navigate(R.id.action_successFragment_to_hotelFragment)
     }
 
     override fun openRoomsScreen() {
-        navController?.navigate(R.id.roomsFragment)
+        navController?.navigate(R.id.action_hotelFragment_to_roomsFragment)
     }
 
     override fun openBookingScreen(roomId: Int) {
-        navController?.navigate(
-            R.id.successFragment,
-            FragmentSuccessHelper.createBundle(12345)
-        )
+        navController?.navigate(R.id.action_roomsFragment_to_bookingFragment)
     }
 
     override fun openSuccessPage(orderId: Int) {
         navController?.navigate(
-            R.id.successFragment,
-            FragmentSuccessHelper.createBundle(orderId)
+            R.id.action_bookingFragment_to_successFragment,
+            SuccessFragmentHelper.createBundle(orderId)
         )
     }
 }

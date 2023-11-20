@@ -24,14 +24,14 @@
         tools:text="Steigenberger Makadi" />
 
     <TextView
-        android:id="@+id/textViewLocation"
+        android:id="@+id/textViewAdress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/extra_small_margin"
         android:background="?attr/selectableItemBackground"
         android:paddingVertical="@dimen/extra_small_margin"
         android:textAppearance="@style/HotelsApp.TextAppearance.Body2.Medium"
-        android:textColor="@color/blue700"
+        android:textColor="?attr/colorPrimary"
         tools:text="Madinat Makadi, Safaga Road, Makadi Bay, Египет" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
