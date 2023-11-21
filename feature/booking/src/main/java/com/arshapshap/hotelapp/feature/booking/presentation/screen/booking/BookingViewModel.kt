@@ -179,12 +179,12 @@ internal class BookingViewModel(
             addError(BookingError.WrongPhone)
         }
         _touristsList.forEach {
-            error = isTouristNameValid(it) || error
-            error = isTouristSurnameValid(it) || error
-            error = isTouristBirthdayValid(it) || error
-            error = isTouristCitizenshipValid(it) || error
-            error = isTouristPassportNumberValid(it) || error
-            error = isTouristPassportValidityPeriodValid(it) || error
+            error = !isTouristNameValid(it) || error
+            error = !isTouristSurnameValid(it) || error
+            error = !isTouristBirthdayValid(it) || error
+            error = !isTouristCitizenshipValid(it) || error
+            error = !isTouristPassportNumberValid(it) || error
+            error = !isTouristPassportValidityPeriodValid(it) || error
         }
 
         return !error

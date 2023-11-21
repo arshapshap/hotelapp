@@ -49,6 +49,10 @@
         <item name="android:textFontWeight" tools:targetApi="p">500</item>
     </style>
 
+    <style name="HotelsApp.TextAppearance.Zero" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">0sp</item>
+    </style>
+
     <!-- TagView -->
     <style name="HotelsApp.TagView" />
 
@@ -95,6 +99,7 @@
         <item name="boxCornerRadiusBottomEnd">@dimen/medium_corner_radius</item>
         <item name="boxStrokeWidth">0dp</item>
         <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="errorTextAppearance">@style/HotelsApp.TextAppearance.Zero</item>
     </style>
     <style name="HotelsApp.TextInputEditText" parent="Widget.Material3.TextInputLayout.FilledBox">
         <item name="android:textColorHint">@color/grey400</item>

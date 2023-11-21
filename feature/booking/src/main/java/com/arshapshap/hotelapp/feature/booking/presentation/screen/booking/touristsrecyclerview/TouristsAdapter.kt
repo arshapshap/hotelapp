@@ -11,6 +11,11 @@ import com.arshapshap.hotelapp.feature.booking.R
 import com.arshapshap.hotelapp.feature.booking.databinding.LayoutBookingTouristInfoBinding
 import com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.model.EditableTourist
 import com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.model.EditableTouristField
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
+
+
 
 
 internal class TouristsAdapter(
@@ -93,7 +98,7 @@ internal class TouristsAdapter(
                 editTextSurname.setNewText(tourist.surname)
 
                 //textInputBirthday.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongBirthday))
-                editTextBirthday.setNewText(tourist.birthday?.toString() ?: "")
+                editTextBirthday.setNewText(tourist.birthday?.format() ?: "")
 
                 //textInputCitizenship.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongCitizenship))
                 editTextCitizenship.setNewText(tourist.citizenship)
@@ -103,7 +108,7 @@ internal class TouristsAdapter(
 
                 //textInputPassportValidityPeriod.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongPassportValidityPeriod))
                 editTextPassportValidityPeriod.setNewText(
-                    tourist.passportValidityPeriod?.toString() ?: ""
+                    tourist.passportValidityPeriod?.format() ?: ""
                 )
             }
         }
@@ -149,6 +154,11 @@ internal class TouristsAdapter(
                     }
                 }
             }
+        }
+
+        private fun LocalDate.format(): String {
+            val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+            return this.format(formatter)
         }
     }
 
