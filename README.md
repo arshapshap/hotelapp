@@ -15,3 +15,20 @@ https://www.youtube.com/watch?v=CqI0Yovg9w4
 <image src='https://github.com/arshapshap/hotelapp/assets/48681339/9d0cb734-7f9e-4f7f-a5a6-0941f1917b6d' width=200 />
 <image src='https://github.com/arshapshap/hotelapp/assets/48681339/62e38099-c34e-4ce8-95b7-24d3f0e8c185' width=200 />
 <image src='https://github.com/arshapshap/hotelapp/assets/48681339/ecfbdb82-c0ff-4391-8e29-05ff5662cce7' width=200 />
+
+## Архитектура
+* Clean Architecture
+* MVVM
+* Многомодульность
+
+## Используемые технологии
+
+* Kotlin
+* Android SDK
+* LiveData
+* Coroutines
+* Koin
+* Retrofit, Gson
+* Navigation Component
+* Coil
+* CustomView
