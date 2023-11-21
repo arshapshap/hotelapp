@@ -196,20 +196,8 @@ internal class BookingViewModel(
         if (error !is BookingError.Tourist && error !in _errors.value!!)
             _errors.value = _errors.value!!.plus(error)
         else if (error is BookingError.Tourist) {
-            _touristsList[error.touristId] = when(error) {
-                is BookingError.Tourist.WrongName ->
-                    _touristsList[error.touristId].copy(wrongName = true)
-                is BookingError.Tourist.WrongSurname ->
-                    _touristsList[error.touristId].copy(wrongSurname = true)
-                is BookingError.Tourist.WrongBirthday ->
-                    _touristsList[error.touristId].copy(wrongBirthday = true)
-                is BookingError.Tourist.WrongCitizenship ->
-                    _touristsList[error.touristId].copy(wrongCitizenship = true)
-                is BookingError.Tourist.WrongPassportNumber ->
-                    _touristsList[error.touristId].copy(wrongPassportNumber = true)
-                is BookingError.Tourist.WrongPassportValidityPeriod ->
-                    _touristsList[error.touristId].copy(wrongPassportValidityPeriod = true)
-            }
+            _touristsList[error.touristId] = _touristsList[error.touristId]
+                .copy(errors = _touristsList[error.touristId].errors.plus(error))
         }
     }
 
@@ -217,20 +205,8 @@ internal class BookingViewModel(
         if (error !is BookingError.Tourist && error in _errors.value!!)
             _errors.value = _errors.value!!.minus(error)
         else if (error is BookingError.Tourist) {
-            _touristsList[error.touristId] = when(error) {
-                is BookingError.Tourist.WrongName ->
-                    _touristsList[error.touristId].copy(wrongName = false)
-                is BookingError.Tourist.WrongSurname ->
-                    _touristsList[error.touristId].copy(wrongSurname = false)
-                is BookingError.Tourist.WrongBirthday ->
-                    _touristsList[error.touristId].copy(wrongBirthday = false)
-                is BookingError.Tourist.WrongCitizenship ->
-                    _touristsList[error.touristId].copy(wrongCitizenship = false)
-                is BookingError.Tourist.WrongPassportNumber ->
-                    _touristsList[error.touristId].copy(wrongPassportNumber = false)
-                is BookingError.Tourist.WrongPassportValidityPeriod ->
-                    _touristsList[error.touristId].copy(wrongPassportValidityPeriod = false)
-            }
+            _touristsList[error.touristId] = _touristsList[error.touristId]
+                .copy(errors = _touristsList[error.touristId].errors.minus(error))
         }
     }
 

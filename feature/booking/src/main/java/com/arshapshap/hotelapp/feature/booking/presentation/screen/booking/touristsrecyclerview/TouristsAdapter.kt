@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arshapshap.hotelapp.designsystem.extensions.setError
 import com.arshapshap.hotelapp.feature.booking.R
 import com.arshapshap.hotelapp.feature.booking.databinding.LayoutBookingTouristInfoBinding
+import com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.model.BookingError
 import com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.model.EditableTourist
 import com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.model.EditableTouristField
 import java.time.LocalDate
@@ -57,11 +58,10 @@ internal class TouristsAdapter(
         }
 
         fun onBind(tourist: EditableTourist) {
-            val usedForNewTourist = touristId != tourist.id
             touristId = tourist.id
 
             setHeader(tourist)
-            setContent(tourist, usedForNewTourist)
+            setContent(tourist)
             setContentExpanded(tourist.isExpanded)
         }
 
@@ -89,7 +89,7 @@ internal class TouristsAdapter(
             }
         }
 
-        private fun setContent(tourist: EditableTourist, usedForNewTourist: Boolean) {
+        private fun setContent(tourist: EditableTourist) {
             with(binding) {
                 editTextName.setNewText(tourist.name)
                 editTextSurname.setNewText(tourist.surname)
@@ -98,12 +98,12 @@ internal class TouristsAdapter(
                 editTextPassportNumber.setNewText(tourist.passportNumber?.toString() ?: "")
                 editTextPassportValidityPeriod.setNewText(tourist.passportValidityPeriod?.format() ?: "")
 
-                textInputName.setError(binding.root.context, tourist.wrongName, getString(binding.root.context, R.string.wrong_name))
-                textInputSurname.setError(binding.root.context, tourist.wrongSurname, getString(binding.root.context, R.string.wrong_surname))
-                textInputBirthday.setError(binding.root.context, tourist.wrongBirthday, getString(binding.root.context, R.string.wrong_birthday))
-                textInputCitizenship.setError(binding.root.context, tourist.wrongCitizenship, getString(binding.root.context, R.string.wrong_citizenship))
-                textInputPassportNumber.setError(binding.root.context, tourist.wrongPassportNumber, getString(binding.root.context, R.string.wrong_passport_number))
-                textInputPassportValidityPeriod.setError(binding.root.context, tourist.wrongPassportValidityPeriod, getString(binding.root.context, R.string.wrong_passport_validity_period))
+                textInputName.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongName(tourist.id)), getString(binding.root.context, R.string.wrong_name))
+                textInputSurname.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongSurname(tourist.id)), getString(binding.root.context, R.string.wrong_surname))
+                textInputBirthday.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongBirthday(tourist.id)), getString(binding.root.context, R.string.wrong_birthday))
+                textInputCitizenship.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongCitizenship(tourist.id)), getString(binding.root.context, R.string.wrong_citizenship))
+                textInputPassportNumber.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongPassportNumber(tourist.id)), getString(binding.root.context, R.string.wrong_passport_number))
+                textInputPassportValidityPeriod.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongPassportValidityPeriod(tourist.id)), getString(binding.root.context, R.string.wrong_passport_validity_period))
             }
         }
 
