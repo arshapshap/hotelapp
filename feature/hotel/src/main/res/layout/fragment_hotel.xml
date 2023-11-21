@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/default_margin_negative"
+    android:fillViewport="true">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/rootLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_card"
+            android:padding="@dimen/default_margin">
+
+            <include
+                android:id="@+id/layoutImagesCarousel"
+                layout="@layout/layout_image_carousel"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_carousel_height"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.arshapshap.hotelapp.designsystem.customviews.TagView
+                android:id="@+id/tagViewRating"
+                style="@style/HotelsApp.TagView.Rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutImagesCarousel"
+                tools:text="5 Превосходно" />
+
+            <TextView
+                android:id="@+id/textViewHotelName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:textAppearance="@style/HotelsApp.TextAppearance.Headline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tagViewRating"
+                tools:text="Steigenberger Makadi" />
+
+            <TextView
+                android:id="@+id/textViewLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/extra_small_margin"
+                android:paddingVertical="@dimen/extra_small_margin"
+                android:textAppearance="@style/HotelsApp.TextAppearance.Body2.Medium"
+                android:textColor="?attr/colorPrimary"
+                android:background="?attr/selectableItemBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewHotelName"
+                tools:text="Madinat Makadi, Safaga Road, Makadi Bay, Египет" />
+
+            <TextView
+                android:id="@+id/textViewPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:textAppearance="@style/HotelsApp.TextAppearance.Large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewLocation"
+                tools:text="от 134 673 ₽" />
+
+            <TextView
+                android:id="@+id/textViewPriceDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
+                android:textColor="@color/grey500"
+                app:layout_constraintBaseline_toBaselineOf="@id/textViewPrice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/textViewPrice"
+                tools:text="за тур с перелётом" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/shape_card"
+            android:orientation="vertical"
+            android:padding="@dimen/default_margin">
+
+            <TextView
+                android:id="@+id/textViewHeadlineAboutHotel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_hotel"
+                android:textAppearance="@style/HotelsApp.TextAppearance.Headline" />
+
+            <include
+                android:id="@+id/recyclerViewPeculiarities"
+                layout="@layout/recyclerview_peculiarities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin" />
+
+            <TextView
+                android:id="@+id/textViewAboutHotel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
+                tools:text="Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!" />
+
+            <include layout="@layout/layout_hotel_details_menu" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <FrameLayout
+            style="@style/HotelsApp.BottomButtonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonGoToRoomSelection"
+                style="@style/HotelsApp.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/go_to_room_selection" />
+        </FrameLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>

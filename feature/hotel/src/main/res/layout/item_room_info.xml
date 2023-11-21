@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="4dp"
+    android:background="@drawable/shape_card"
+    android:padding="@dimen/default_margin">
+
+    <include
+        android:id="@+id/layoutImagesCarousel"
+        layout="@layout/layout_image_carousel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_carousel_height"
+        android:layout_marginTop="@dimen/small_margin"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewRoomName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:textAppearance="@style/HotelsApp.TextAppearance.Headline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutImagesCarousel"
+        tools:text="Стандартный с видом на бассейн или сад" />
+
+    <include
+        android:id="@+id/recyclerViewPeculiarities"
+        layout="@layout/recyclerview_peculiarities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        app:layout_constraintTop_toBottomOf="@id/textViewRoomName" />
+
+    <com.arshapshap.hotelapp.designsystem.customviews.TagView
+        android:id="@+id/tagViewDetails"
+        style="@style/HotelsApp.TagView.Details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/extra_small_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewPeculiarities"
+        app:text="@string/more_about_the_room" />
+
+    <TextView
+        android:id="@+id/textViewPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:textAppearance="@style/HotelsApp.TextAppearance.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tagViewDetails"
+        tools:text="186 600 ₽" />
+
+    <TextView
+        android:id="@+id/textViewPriceDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:textAppearance="@style/HotelsApp.TextAppearance.Body1"
+        android:textColor="@color/grey500"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/textViewPrice"
+        tools:text="за 7 ночей с перелётом" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSelectRoom"
+        style="@style/HotelsApp.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_margin"
+        android:text="@string/select_room"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPrice" />
+</androidx.constraintlayout.widget.ConstraintLayout>
