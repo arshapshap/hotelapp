@@ -80,12 +80,6 @@ internal class BookingFragment : BaseFragment<FragmentBookingBinding, BookingVie
                     binding.layoutCustomerInfo.textInputEmail.setError(true, getString(R.string.wrong_email))
                 }
             }
-
-//            binding.recyclerViewTourists.post {
-//                getTouristsAdapter().setErrorsSet(errors
-//                    .filter { it is BookingError.Tourist }
-//                    .map { it as BookingError.Tourist }.toSet())
-//            }
         }
     }
 

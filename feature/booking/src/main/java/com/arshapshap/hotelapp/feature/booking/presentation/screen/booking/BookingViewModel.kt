@@ -31,6 +31,7 @@ internal class BookingViewModel(
     val customer: LiveData<Customer> = _customer
 
     private val _touristsList: MutableList<EditableTourist> = mutableListOf(getNewTourist())
+
     private val _tourists = MutableLiveData<List<EditableTourist>>(_touristsList)
     val tourists: LiveData<List<EditableTourist>> = _tourists
 
@@ -187,17 +188,50 @@ internal class BookingViewModel(
             error = !isTouristPassportValidityPeriodValid(it) || error
         }
 
+        _tourists.value = _touristsList
         return !error
     }
 
     private fun addError(error: BookingError) {
-        if (error !in _errors.value!!)
+        if (error !is BookingError.Tourist && error !in _errors.value!!)
             _errors.value = _errors.value!!.plus(error)
+        else if (error is BookingError.Tourist) {
+            _touristsList[error.touristId] = when(error) {
+                is BookingError.Tourist.WrongName ->
+                    _touristsList[error.touristId].copy(wrongName = true)
+                is BookingError.Tourist.WrongSurname ->
+                    _touristsList[error.touristId].copy(wrongSurname = true)
+                is BookingError.Tourist.WrongBirthday ->
+                    _touristsList[error.touristId].copy(wrongBirthday = true)
+                is BookingError.Tourist.WrongCitizenship ->
+                    _touristsList[error.touristId].copy(wrongCitizenship = true)
+                is BookingError.Tourist.WrongPassportNumber ->
+                    _touristsList[error.touristId].copy(wrongPassportNumber = true)
+                is BookingError.Tourist.WrongPassportValidityPeriod ->
+                    _touristsList[error.touristId].copy(wrongPassportValidityPeriod = true)
+            }
+        }
     }
 
     private fun removeError(error: BookingError) {
-        if (error in _errors.value!!)
+        if (error !is BookingError.Tourist && error in _errors.value!!)
             _errors.value = _errors.value!!.minus(error)
+        else if (error is BookingError.Tourist) {
+            _touristsList[error.touristId] = when(error) {
+                is BookingError.Tourist.WrongName ->
+                    _touristsList[error.touristId].copy(wrongName = false)
+                is BookingError.Tourist.WrongSurname ->
+                    _touristsList[error.touristId].copy(wrongSurname = false)
+                is BookingError.Tourist.WrongBirthday ->
+                    _touristsList[error.touristId].copy(wrongBirthday = false)
+                is BookingError.Tourist.WrongCitizenship ->
+                    _touristsList[error.touristId].copy(wrongCitizenship = false)
+                is BookingError.Tourist.WrongPassportNumber ->
+                    _touristsList[error.touristId].copy(wrongPassportNumber = false)
+                is BookingError.Tourist.WrongPassportValidityPeriod ->
+                    _touristsList[error.touristId].copy(wrongPassportValidityPeriod = false)
+            }
+        }
     }
 
     private fun getNewTourist() = EditableTourist(

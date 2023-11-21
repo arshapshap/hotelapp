@@ -3,20 +3,18 @@ package com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.tour
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.core.content.ContextCompat.getString
 import androidx.core.view.isGone
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.arshapshap.hotelapp.designsystem.extensions.setError
 import com.arshapshap.hotelapp.feature.booking.R
 import com.arshapshap.hotelapp.feature.booking.databinding.LayoutBookingTouristInfoBinding
 import com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.model.EditableTourist
 import com.arshapshap.hotelapp.feature.booking.presentation.screen.booking.model.EditableTouristField
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-
-
-
-
 
 internal class TouristsAdapter(
     private val list: MutableList<EditableTourist> = mutableListOf(),
@@ -40,7 +38,8 @@ internal class TouristsAdapter(
 
     override fun getItemCount(): Int = list.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.onBind(list[position])
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) =
+        holder.onBind(list[position])
 
     private fun getBinding(parent: ViewGroup): LayoutBookingTouristInfoBinding =
         LayoutBookingTouristInfoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -58,10 +57,11 @@ internal class TouristsAdapter(
         }
 
         fun onBind(tourist: EditableTourist) {
+            val usedForNewTourist = touristId != tourist.id
             touristId = tourist.id
 
             setHeader(tourist)
-            setContent(tourist)
+            setContent(tourist, usedForNewTourist)
             setContentExpanded(tourist.isExpanded)
         }
 
@@ -89,27 +89,21 @@ internal class TouristsAdapter(
             }
         }
 
-        private fun setContent(tourist: EditableTourist) {
+        private fun setContent(tourist: EditableTourist, usedForNewTourist: Boolean) {
             with(binding) {
-                //textInputName.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongName))
                 editTextName.setNewText(tourist.name)
-
-                //textInputSurname.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongSurname))
                 editTextSurname.setNewText(tourist.surname)
-
-                //textInputBirthday.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongBirthday))
                 editTextBirthday.setNewText(tourist.birthday?.format() ?: "")
-
-                //textInputCitizenship.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongCitizenship))
                 editTextCitizenship.setNewText(tourist.citizenship)
-
-                //textInputPassportNumber.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongPassportNumber))
                 editTextPassportNumber.setNewText(tourist.passportNumber?.toString() ?: "")
+                editTextPassportValidityPeriod.setNewText(tourist.passportValidityPeriod?.format() ?: "")
 
-                //textInputPassportValidityPeriod.setError(binding.root.context, tourist.errors.contains(BookingError.Tourist.WrongPassportValidityPeriod))
-                editTextPassportValidityPeriod.setNewText(
-                    tourist.passportValidityPeriod?.format() ?: ""
-                )
+                textInputName.setError(binding.root.context, tourist.wrongName, getString(binding.root.context, R.string.wrong_name))
+                textInputSurname.setError(binding.root.context, tourist.wrongSurname, getString(binding.root.context, R.string.wrong_surname))
+                textInputBirthday.setError(binding.root.context, tourist.wrongBirthday, getString(binding.root.context, R.string.wrong_birthday))
+                textInputCitizenship.setError(binding.root.context, tourist.wrongCitizenship, getString(binding.root.context, R.string.wrong_citizenship))
+                textInputPassportNumber.setError(binding.root.context, tourist.wrongPassportNumber, getString(binding.root.context, R.string.wrong_passport_number))
+                textInputPassportValidityPeriod.setError(binding.root.context, tourist.wrongPassportValidityPeriod, getString(binding.root.context, R.string.wrong_passport_validity_period))
             }
         }
 
@@ -176,13 +170,7 @@ internal class TouristsAdapter(
         }
 
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return oldList[oldItemPosition].name == newList[newItemPosition].name
-                    && oldList[oldItemPosition].surname == newList[newItemPosition].surname
-                    && oldList[oldItemPosition].birthday == newList[newItemPosition].birthday
-                    && oldList[oldItemPosition].citizenship == newList[newItemPosition].citizenship
-                    && oldList[oldItemPosition].passportNumber == newList[newItemPosition].passportNumber
-                    && oldList[oldItemPosition].passportValidityPeriod == newList[newItemPosition].passportValidityPeriod
-                    && oldList[oldItemPosition].isExpanded == newList[newItemPosition].isExpanded
+            return oldList[oldItemPosition] == newList[newItemPosition]
         }
     }
 }
