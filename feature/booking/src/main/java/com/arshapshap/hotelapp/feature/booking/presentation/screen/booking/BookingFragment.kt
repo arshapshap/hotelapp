@@ -59,6 +59,7 @@ internal class BookingFragment : BaseFragment<FragmentBookingBinding, BookingVie
         viewModel.loadData()
 
         viewModel.bookingData.observe(viewLifecycleOwner) {
+            binding.rootLinearLayout.isGone = false
             fillInitialData(it)
         }
 

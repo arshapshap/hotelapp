@@ -1,5 +1,6 @@
 package com.arshapshap.hotelapp.feature.hotel.presentation.screen.hotel
 
+import androidx.core.view.isGone
 import com.arshapshap.hotelapp.core.presentation.BaseFragment
 import com.arshapshap.hotelapp.feature.hotel.R
 import com.arshapshap.hotelapp.feature.hotel.databinding.FragmentHotelBinding
@@ -35,6 +36,8 @@ internal class HotelFragment : BaseFragment<FragmentHotelBinding, HotelViewModel
 
         viewModel.hotel.observe(viewLifecycleOwner) {
             with(binding) {
+                rootLinearLayout.isGone = false
+
                 ImageCarouselLoader(
                     context = requireContext(),
                     adapter = getImageCarouselAdapter()
