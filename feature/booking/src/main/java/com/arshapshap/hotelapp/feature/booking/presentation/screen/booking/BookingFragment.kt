@@ -70,15 +70,21 @@ internal class BookingFragment : BaseFragment<FragmentBookingBinding, BookingVie
             binding.recyclerViewTourists.layoutManager!!.onRestoreInstanceState(recyclerViewState)
         }
 
-        viewModel.errors.observe(viewLifecycleOwner) {
+        viewModel.errors.observe(viewLifecycleOwner) { errors ->
             when {
-                BookingError.WrongPhone in it -> {
+                BookingError.WrongPhone in errors -> {
                     binding.layoutCustomerInfo.textInputPhoneNumber.setError(true, getString(R.string.wrong_phone_number))
                 }
-                BookingError.WrongEmail in it -> {
+                BookingError.WrongEmail in errors -> {
                     binding.layoutCustomerInfo.textInputEmail.setError(true, getString(R.string.wrong_email))
                 }
             }
+
+//            binding.recyclerViewTourists.post {
+//                getTouristsAdapter().setErrorsSet(errors
+//                    .filter { it is BookingError.Tourist }
+//                    .map { it as BookingError.Tourist }.toSet())
+//            }
         }
     }
 

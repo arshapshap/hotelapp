@@ -122,49 +122,49 @@ internal class BookingViewModel(
 
     private fun isTouristNameValid(tourist: EditableTourist): Boolean {
         if (tourist.name == "")
-            addError(BookingError.WrongName(tourist.id))
+            addError(BookingError.Tourist.WrongName(tourist.id))
         else
-            removeError(BookingError.WrongName(tourist.id))
+            removeError(BookingError.Tourist.WrongName(tourist.id))
         return tourist.name != ""
     }
 
     private fun isTouristSurnameValid(tourist: EditableTourist): Boolean {
         if (tourist.surname == "")
-            addError(BookingError.WrongSurname(tourist.id))
+            addError(BookingError.Tourist.WrongSurname(tourist.id))
         else
-            removeError(BookingError.WrongSurname(tourist.id))
+            removeError(BookingError.Tourist.WrongSurname(tourist.id))
         return tourist.surname != ""
     }
 
     private fun isTouristBirthdayValid(tourist: EditableTourist): Boolean {
         if (tourist.birthday == null)
-            addError(BookingError.WrongBirthday(tourist.id))
+            addError(BookingError.Tourist.WrongBirthday(tourist.id))
         else
-            removeError(BookingError.WrongBirthday(tourist.id))
+            removeError(BookingError.Tourist.WrongBirthday(tourist.id))
         return tourist.birthday != null
     }
 
     private fun isTouristCitizenshipValid(tourist: EditableTourist): Boolean {
         if (tourist.citizenship == "")
-            addError(BookingError.WrongCitizenship(tourist.id))
+            addError(BookingError.Tourist.WrongCitizenship(tourist.id))
         else
-            removeError(BookingError.WrongCitizenship(tourist.id))
+            removeError(BookingError.Tourist.WrongCitizenship(tourist.id))
         return tourist.citizenship != ""
     }
 
     private fun isTouristPassportNumberValid(tourist: EditableTourist): Boolean {
         if (tourist.passportNumber == null)
-            addError(BookingError.WrongPassportNumber(tourist.id))
+            addError(BookingError.Tourist.WrongPassportNumber(tourist.id))
         else
-            removeError(BookingError.WrongPassportNumber(tourist.id))
+            removeError(BookingError.Tourist.WrongPassportNumber(tourist.id))
         return tourist.passportNumber != null
     }
 
     private fun isTouristPassportValidityPeriodValid(tourist: EditableTourist): Boolean {
         if (tourist.passportValidityPeriod == null)
-            addError(BookingError.WrongPassportValidityPeriod(tourist.id))
+            addError(BookingError.Tourist.WrongPassportValidityPeriod(tourist.id))
         else
-            removeError(BookingError.WrongPassportValidityPeriod(tourist.id))
+            removeError(BookingError.Tourist.WrongPassportValidityPeriod(tourist.id))
         return tourist.passportValidityPeriod != null
     }
 

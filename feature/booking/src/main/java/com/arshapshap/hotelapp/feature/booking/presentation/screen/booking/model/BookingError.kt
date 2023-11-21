@@ -5,15 +5,20 @@ internal sealed interface BookingError {
 
     data object WrongEmail : BookingError
 
-    data class WrongName(val touristId: Int) : BookingError
+    sealed interface Tourist {
 
-    data class WrongSurname(val touristId: Int) : BookingError
+        val touristId: Int
 
-    data class WrongBirthday(val touristId: Int) : BookingError
+        data class WrongName(override val touristId: Int) : BookingError, Tourist
 
-    data class WrongCitizenship(val touristId: Int) : BookingError
+        data class WrongSurname(override val touristId: Int) : BookingError, Tourist
 
-    data class WrongPassportNumber(val touristId: Int) : BookingError
+        data class WrongBirthday(override val touristId: Int) : BookingError, Tourist
 
-    data class WrongPassportValidityPeriod(val touristId: Int) : BookingError
+        data class WrongCitizenship(override val touristId: Int) : BookingError, Tourist
+
+        data class WrongPassportNumber(override val touristId: Int) : BookingError, Tourist
+
+        data class WrongPassportValidityPeriod(override val touristId: Int) : BookingError, Tourist
+    }
 }
